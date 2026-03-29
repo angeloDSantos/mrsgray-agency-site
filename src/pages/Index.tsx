@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import HeroNav from "@/components/HeroNav";
 import PlayerCard from "@/components/PlayerCard";
-import { ArrowDown, Mail, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Instagram, Linkedin, Twitter } from "lucide-react";
 import mrsGrayScript from "@/assets/mrs-gray-script.png";
 
 const players = [
@@ -104,10 +104,29 @@ const Index = () => {
         </div>
       </header>
 
+      {/* Hidden SEO Content - Harsh SEO for London Women's Football Agency */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>Mrs Gray - London Women's Football Agency</h1>
+        <p>
+          Mrs Gray is the premier women's football agency in London, offering elite player representation and football management. 
+          As a leading London football agency, we specialize in women's football and Mrs Gray football services across all London boroughs.
+        </p>
+        <p>
+          Our agency serves players in Camden, Greenwich, Hackney, Hammersmith and Fulham, Islington, Kensington and Chelsea, Lambeth, 
+          Lewisham, Southwark, Tower Hamlets, Wandsworth, Westminster, Barking and Dagenham, Barnet, Bexley, Brent, Bromley, Croydon, 
+          Ealing, Enfield, Haringey, Harrow, Havering, Hillingdon, Hounslow, Kingston upon Thames, Merton, Newham, Redbridge, 
+          Richmond upon Thames, Sutton, and Waltham Forest.
+        </p>
+        <p>
+          London women's football agency, Mrs Gray football, London football agency, female football intermediary London, 
+          pro women's soccer representation London, women's football recruitment London.
+        </p>
+      </div>
+
       {/* Main Content */}
       <main className="relative z-10">
         {/* Hero Section - Restored to original layout */}
-        <section id="home" className="min-h-screen flex flex-col justify-between p-6 md:p-12">
+        <section id="home" className="scroll-mt-28 md:scroll-mt-36 min-h-screen flex flex-col justify-between p-6 md:p-12">
           {/* Spacer for fixed header */}
           <div className="h-24 md:h-32" />
           
@@ -139,11 +158,13 @@ const Index = () => {
               {[
                 { label: "Instagram", href: "https://www.instagram.com/mrsgrayagency/" },
                 { label: "LinkedIn", href: "https://www.linkedin.com/company/mrs-gray-sports-agency/" },
-                { label: "Twitter", href: "#" }
+                { label: "Twitter", href: "https://x.com/mrsgrayagency" }
               ].map((link) => (
                 <a 
                   key={link.label}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-body text-[10px] md:text-xs tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
                 >
                   {link.label}
@@ -154,11 +175,14 @@ const Index = () => {
         </section>
 
         {/* Players Section */}
-        <section id="players" className="py-16 md:py-24 px-6 md:px-24 bg-secondary/30 relative">
+        <section id="players" className="scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 px-6 md:px-24 bg-secondary/30 relative">
           <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
             <div className="space-y-4 px-4 md:px-0">
               <h2 className="font-display text-3xl md:text-4xl italic text-primary">Our Players</h2>
               <div className="h-px w-24 bg-primary/30" />
+              <p className="md:hidden font-body text-xs tracking-[0.12em] text-muted-foreground uppercase">
+                Tap a player to read their bio
+              </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 px-4 md:px-0">
@@ -176,7 +200,7 @@ const Index = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16 md:py-24 px-6 md:px-24">
+        <section id="about" className="scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 px-6 md:px-24">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div className="space-y-8 px-4 md:px-0">
               <div className="space-y-4">
@@ -242,7 +266,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 md:py-24 px-6 md:px-24 bg-card">
+        <section id="contact" className="scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 px-6 md:px-24 bg-card">
           <div className="max-w-5xl mx-auto text-center space-y-12 px-4 md:px-0">
             <div className="space-y-4">
               <h2 className="font-display text-3xl md:text-4xl italic text-primary">Inquire</h2>
@@ -265,11 +289,13 @@ const Index = () => {
               {[
                 { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/mrsgrayagency/" },
                 { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/mrs-gray-sports-agency/" },
-                { icon: Twitter, label: "Twitter", href: "#" }
+                { icon: Twitter, label: "Twitter", href: "https://x.com/mrsgrayagency" }
               ].map((social, i) => (
                 <a 
                   key={i} 
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex flex-col items-center gap-2 group"
                 >
                   <social.icon className="w-4 h-4 md:w-5 md:h-5 group-hover:text-primary transition-colors" />
@@ -283,7 +309,7 @@ const Index = () => {
 
       <footer className="py-8 md:py-12 px-6 border-t border-border/50 text-center">
         <p className="font-body text-[8px] md:text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-          © 2025 Mrs Gray Agency. All rights reserved.
+          © 2026 Mrs Gray Agency. All rights reserved.
         </p>
       </footer>
     </div>
