@@ -33,7 +33,12 @@ const PlayerCard = ({ name, club, bio, image }: PlayerProps) => {
       <img
         src={image}
         alt={name}
-        className={`w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105`}
+        width={900}
+        height={1200}
+        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105"
       />
 
       {/* Hover Overlay */}

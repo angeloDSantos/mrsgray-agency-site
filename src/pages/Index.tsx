@@ -70,7 +70,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-background text-foreground scroll-smooth overflow-x-hidden">
+    <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden">
       {/* Background Logo Overlay (Fixed) */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] z-0">
         <img
@@ -82,22 +82,22 @@ const Index = () => {
 
       {/* Navigation - Fixed on desktop */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-[40] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[40] pt-[env(safe-area-inset-top,0px)] transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#1a1816]/90 backdrop-blur-md border-b border-border/50 py-4 md:py-8 shadow-lg' 
-            : 'bg-transparent py-8 md:py-12'
+            ? 'bg-[#1a1816]/90 backdrop-blur-md border-b border-border/50 py-3 md:py-6 shadow-lg' 
+            : 'bg-transparent py-5 md:py-10'
         }`}
       >
-        <div className="flex justify-between items-center md:items-start max-w-[1440px] mx-auto w-full px-6 md:px-12">
+        <div className="flex justify-between items-center md:items-start max-w-[1440px] mx-auto w-full px-4 min-[480px]:px-6 md:px-12">
           <div className="animate-slide-in-left">
             <HeroNav activeSection={activeSection} />
           </div>
           
-          <div className="text-right">
-            <h2 className="font-body text-[10px] md:text-sm tracking-[0.3em] text-foreground/80 uppercase">
+          <div className="text-right shrink-0 pl-2">
+            <h2 className="font-body text-[10px] sm:text-xs md:text-sm tracking-[0.25em] sm:tracking-[0.3em] text-foreground/80 uppercase">
               Mrs Gray
             </h2>
-            <p className="font-body text-[8px] md:text-xs tracking-[0.2em] text-muted-foreground uppercase hidden sm:block">
+            <p className="font-body text-[8px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-muted-foreground uppercase hidden sm:block">
               Women's Football Agency
             </p>
           </div>
@@ -126,28 +126,28 @@ const Index = () => {
       {/* Main Content */}
       <main className="relative z-10">
         {/* Hero Section - Restored to original layout */}
-        <section id="home" className="scroll-mt-28 md:scroll-mt-36 min-h-screen flex flex-col justify-between p-6 md:p-12">
+        <section id="home" className="scroll-mt-28 md:scroll-mt-36 min-h-dvh flex flex-col justify-between p-4 min-[480px]:p-6 md:p-12">
           {/* Spacer for fixed header */}
-          <div className="h-24 md:h-32" />
+          <div className="h-20 sm:h-24 md:h-28" />
           
-          <div className="flex-1 flex items-center">
-            <div className="max-w-4xl space-y-6 md:space-y-8 animate-fade-in px-4 md:px-12">
-              <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl italic leading-tight text-foreground/90">
+          <div className="flex-1 flex items-center min-h-0">
+            <div className="max-w-4xl space-y-5 sm:space-y-6 md:space-y-8 animate-fade-in px-2 min-[480px]:px-4 md:px-12 w-full">
+              <h1 className="font-display text-[2rem] min-[400px]:text-4xl sm:text-5xl md:text-7xl lg:text-8xl italic leading-[1.15] sm:leading-tight text-foreground/90 text-balance">
                 Elevating women's football,
                 <br />
                 <span className="text-primary/80">one player at a time</span>
               </h1>
-              <p className="font-body text-base md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="font-body text-[15px] sm:text-base md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-pretty">
                 Representing the next generation of women's football talent with intention, trust, and tailored support.
               </p>
             </div>
           </div>
 
-          <footer className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-8 px-4 md:px-12 pb-12 md:pb-4">
+          <footer className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 sm:gap-8 px-2 min-[480px]:px-4 md:px-12 pb-[max(3rem,env(safe-area-inset-bottom,0px))] sm:pb-12 md:pb-4">
             <div className="animate-fade-in w-full sm:w-auto flex justify-center sm:justify-start" style={{ animationDelay: "0.6s" }}>
               <a 
                 href="#players"
-                className="inline-flex items-center justify-center gap-3 w-full sm:w-80 md:w-auto px-8 py-4 bg-primary text-primary-foreground font-body text-sm tracking-[0.15em] uppercase hover:bg-zinc-800 transition-colors duration-300 group"
+                className="inline-flex items-center justify-center gap-3 w-full sm:w-80 md:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 bg-primary text-primary-foreground font-body text-sm tracking-[0.15em] uppercase hover:bg-zinc-800 active:bg-zinc-800 transition-colors duration-300 group touch-manipulation"
               >
                 <span className="text-lg group-hover:rotate-90 transition-transform duration-300">✦</span>
                 Our Players
@@ -175,7 +175,7 @@ const Index = () => {
         </section>
 
         {/* Players Section */}
-        <section id="players" className="scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 px-6 md:px-24 bg-secondary/30 relative">
+        <section id="players" className="scroll-mt-28 md:scroll-mt-36 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24 bg-secondary/30 relative">
           <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
             <div className="space-y-4 px-4 md:px-0">
               <h2 className="font-display text-3xl md:text-4xl italic text-primary">Our Players</h2>
@@ -185,7 +185,7 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 px-4 md:px-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12 px-2 min-[480px]:px-4 md:px-0">
               {players.map((player, index) => (
                 <div 
                   key={player.name} 
@@ -200,7 +200,7 @@ const Index = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 px-6 md:px-24">
+        <section id="about" className="scroll-mt-28 md:scroll-mt-36 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div className="space-y-8 px-4 md:px-0">
               <div className="space-y-4">
@@ -239,12 +239,14 @@ const Index = () => {
           </div>
 
           {/* Founder Section */}
-          <div className="max-w-5xl mx-auto mt-16 md:mt-24 grid md:grid-cols-2 gap-12 md:gap-16 items-center px-4 md:px-0">
-            <div className="aspect-[4/5] bg-muted relative overflow-hidden grayscale brightness-90 transition-all duration-700 hover:grayscale-0">
+          <div className="max-w-5xl mx-auto mt-12 sm:mt-16 md:mt-24 grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center px-2 min-[480px]:px-4 md:px-0">
+            <div className="aspect-[4/5] max-md:max-h-[min(85vh,520px)] md:max-h-none mx-auto w-full bg-muted relative overflow-hidden grayscale contrast-[1.02]">
                <img 
                  src="/michaela_enhanced.png" 
                  alt="Michaela Gooden" 
-                 className="w-full h-full object-cover"
+                 className="w-full h-full object-cover object-top md:object-center"
+                 loading="lazy"
+                 decoding="async"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
             </div>
@@ -266,26 +268,26 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 px-6 md:px-24 bg-card">
-          <div className="max-w-5xl mx-auto text-center space-y-12 px-4 md:px-0">
+        <section id="contact" className="scroll-mt-28 md:scroll-mt-36 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24 bg-card">
+          <div className="max-w-5xl mx-auto text-center space-y-8 sm:space-y-12 px-2 min-[480px]:px-4 md:px-0">
             <div className="space-y-4">
               <h2 className="font-display text-3xl md:text-4xl italic text-primary">Inquire</h2>
               <div className="h-px w-24 bg-primary/30 mx-auto" />
             </div>
             
-            <p className="font-body text-xl md:text-3xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
+            <p className="font-body text-lg sm:text-xl md:text-3xl text-foreground/80 leading-relaxed max-w-3xl mx-auto text-pretty px-1">
               For representation or partnership inquiries, please reach out to our team.
             </p>
 
             <a 
               href="mailto:info@mrsgray.agency" 
-              className="inline-flex items-center gap-4 text-lg md:text-2xl font-display italic hover:text-primary transition-colors"
+              className="inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-base sm:text-lg md:text-2xl font-display italic hover:text-primary transition-colors max-w-full px-2 break-words [overflow-wrap:anywhere] touch-manipulation"
             >
-              <Mail className="w-5 h-5 md:w-6 md:h-6" />
-              info@mrsgray.agency
+              <Mail className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+              <span className="text-center">info@mrsgray.agency</span>
             </a>
 
-            <div className="flex justify-center gap-8 md:gap-12 pt-8 md:pt-12">
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 sm:gap-8 md:gap-12 pt-6 sm:pt-8 md:pt-12">
               {[
                 { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/mrsgrayagency/" },
                 { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/mrs-gray-sports-agency/" },
@@ -296,10 +298,10 @@ const Index = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-2 group"
+                  className="flex flex-col items-center gap-2 group min-w-[4.5rem] min-h-[48px] justify-center touch-manipulation"
                 >
-                  <social.icon className="w-4 h-4 md:w-5 md:h-5 group-hover:text-primary transition-colors" />
-                  <span className="text-[8px] md:text-[10px] tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground">{social.label}</span>
+                  <social.icon className="w-5 h-5 md:w-5 md:h-5 group-hover:text-primary transition-colors" />
+                  <span className="text-[9px] md:text-[10px] tracking-[0.18em] md:tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground">{social.label}</span>
                 </a>
               ))}
             </div>
@@ -307,7 +309,7 @@ const Index = () => {
         </section>
       </main>
 
-      <footer className="py-8 md:py-12 px-6 border-t border-border/50 text-center">
+      <footer className="py-8 md:py-12 px-4 md:px-6 pb-[max(2rem,env(safe-area-inset-bottom,0px))] border-t border-border/50 text-center">
         <p className="font-body text-[8px] md:text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
           © 2026 Mrs Gray Agency. All rights reserved.
         </p>
