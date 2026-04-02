@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
-const navItems = ["HOME", "PLAYERS", "ABOUT", "CONTACT"];
+const navItems = ["HOME", "PLAYERS", "ABOUT", "CONTACT"] as const;
 
 interface HeroNavProps {
   activeSection?: string;
@@ -10,59 +10,80 @@ interface HeroNavProps {
 const HeroNav = ({ activeSection }: HeroNavProps) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const menuId = useId();
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+  const toggleMenu = useCallback(() => setIsOpen((o) => !o), []);
 
   useEffect(() => {
     if (!isOpen) return;
+
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
     document.addEventListener("keydown", onKeyDown);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+
+    const scrollY = window.scrollY;
+    const prev = {
+      position: document.body.style.position,
+      top: document.body.style.top,
+      left: document.body.style.left,
+      right: document.body.style.right,
+      width: document.body.style.width,
+    };
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = prevOverflow;
+      document.body.style.position = prev.position;
+      document.body.style.top = prev.top;
+      document.body.style.left = prev.left;
+      document.body.style.right = prev.right;
+      document.body.style.width = prev.width;
+      window.scrollTo(0, scrollY);
     };
   }, [isOpen]);
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button 
+      <button
         type="button"
         onClick={toggleMenu}
-        className="md:hidden -m-2 p-3 min-h-[48px] min-w-[48px] flex items-center justify-center text-foreground/70 hover:text-primary active:text-primary transition-colors pointer-events-auto relative z-[110] touch-manipulation"
-        aria-label="Toggle menu"
+        className="relative z-[80] -m-2 flex min-h-[48px] min-w-[48px] items-center justify-center p-3 text-foreground/70 hover:text-primary active:text-primary md:hidden touch-manipulation"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
-        aria-controls="mobile-nav-overlay"
+        aria-controls={menuId}
       >
-        {isOpen ? <X className="w-6 h-6" aria-hidden /> : <Menu className="w-6 h-6" aria-hidden />}
+        {isOpen ? <X className="h-6 w-6 shrink-0" aria-hidden /> : <Menu className="h-6 w-6 shrink-0" aria-hidden />}
       </button>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex flex-col gap-1 pointer-events-auto">
+      <nav
+        className="animate-slide-in-left hidden flex-col gap-1 md:flex"
+        aria-label="Main"
+      >
         {navItems.map((item, index) => {
           const isActive = activeSection === item.toLowerCase();
           return (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className={`font-body text-sm tracking-[0.2em] transition-all duration-300 w-fit ${
-                isActive || hoveredItem === item 
-                  ? 'text-primary translate-x-2' 
-                  : 'text-foreground/70'
+              className={`font-body text-sm tracking-[0.2em] transition-colors duration-300 w-fit ${
+                isActive || hoveredItem === item
+                  ? "text-primary translate-x-2"
+                  : "text-foreground/70"
               }`}
               style={{ animationDelay: `${index * 0.1 + 0.3}s` }}
               onMouseEnter={() => setHoveredItem(item)}
               onMouseLeave={() => setHoveredItem(null)}
             >
-              <span className="inline-block relative">
+              <span className="relative inline-block">
                 {item}
                 {isActive && (
-                  <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-px bg-primary animate-fade-in" />
+                  <span className="absolute -left-4 top-1/2 h-px w-2 -translate-y-1/2 bg-primary animate-fade-in" />
                 )}
               </span>
             </a>
@@ -70,36 +91,35 @@ const HeroNav = ({ activeSection }: HeroNavProps) => {
         })}
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <div 
-        id="mobile-nav-overlay"
-        className={`fixed inset-0 z-[100] bg-zinc-950 transition-all duration-500 md:hidden flex flex-col ${
-          isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-full'
+      {/* Full-screen mobile menu: fixed to viewport (header has no transform / mobile blur). */}
+      <div
+        id={menuId}
+        className={`fixed inset-0 z-[70] flex flex-col bg-[#161412] md:hidden overscroll-none transition-opacity duration-200 ease-out motion-reduce:transition-none ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
-        style={{ backgroundColor: '#161412' }}
         aria-hidden={!isOpen}
       >
-        <div className="flex justify-end p-6 pt-[max(1.5rem,env(safe-area-inset-top,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]">
-          {/* Menu button is handled above with z-110 */}
-          <div className="w-10 h-10" /> 
-        </div>
-        
-        <nav className="flex flex-col gap-6 sm:gap-10 items-center justify-center flex-1 w-full h-full pb-[max(6rem,env(safe-area-inset-bottom,0px))]">
-          {navItems.map((item, index) => {
-            const isActive = activeSection === item.toLowerCase();
+        {/* Top padding so centered links clear the header; close via top-left burger (z-80). */}
+        <div
+          className="shrink-0 pt-[max(4.5rem,env(safe-area-inset-top,0px))]"
+          aria-hidden
+        />
+
+        <nav
+          className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1 px-4"
+          aria-label="Mobile"
+        >
+          {navItems.map((item) => {
+            const slug = item.toLowerCase();
+            const isActive = activeSection === slug;
             return (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${slug}`}
                 onClick={closeMenu}
-                className={`font-display text-3xl min-[400px]:text-4xl italic tracking-wider transition-all duration-500 w-full max-w-[90vw] text-center py-4 min-h-[48px] flex items-center justify-center touch-manipulation ${
-                  isActive ? 'text-primary' : 'text-foreground/70'
+                className={`flex min-h-[48px] w-full max-w-md items-center justify-center rounded-sm py-3 text-center font-display text-[1.65rem] min-[400px]:text-4xl italic tracking-wide transition-colors duration-150 touch-manipulation ${
+                  isActive ? "text-primary" : "text-foreground/75 active:text-foreground"
                 }`}
-                style={{ 
-                  transitionDelay: isOpen ? `${index * 0.1 + 0.2}s` : '0s',
-                  transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                  opacity: isOpen ? 1 : 0
-                }}
               >
                 {item}
               </a>
@@ -107,10 +127,8 @@ const HeroNav = ({ activeSection }: HeroNavProps) => {
           })}
         </nav>
 
-        <div className="mt-auto text-center pb-[max(3rem,env(safe-area-inset-bottom,0px))] opacity-40">
-          <h2 className="font-body text-xs tracking-[0.3em] text-foreground uppercase">
-            Mrs Gray
-          </h2>
+        <div className="shrink-0 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] text-center opacity-40">
+          <p className="font-body text-xs tracking-[0.3em] uppercase text-foreground">Mrs Gray</p>
         </div>
       </div>
     </>

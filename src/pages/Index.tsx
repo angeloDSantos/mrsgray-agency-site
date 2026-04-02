@@ -70,28 +70,17 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden">
-      {/* Background Logo Overlay (Fixed) */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] z-0">
-        <img
-          src={mrsGrayScript}
-          alt=""
-          className="w-[120%] md:w-[80%] max-w-[1200px] select-none"
-        />
-      </div>
-
-      {/* Navigation - Fixed on desktop */}
+    <>
+      {/* Header outside overflow-x-hidden so fixed mobile menu is not clipped; no transform ancestors */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-[40] pt-[env(safe-area-inset-top,0px)] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[60] pt-[env(safe-area-inset-top,0px)] transition-colors duration-300 ${
           isScrolled 
-            ? 'bg-[#1a1816]/90 backdrop-blur-md border-b border-border/50 py-3 md:py-6 shadow-lg' 
+            ? 'max-md:bg-[#1a1816]/96 md:bg-[#1a1816]/88 md:backdrop-blur-md border-b border-border/50 py-3 md:py-6 shadow-lg' 
             : 'bg-transparent py-5 md:py-10'
         }`}
       >
         <div className="flex justify-between items-center md:items-start max-w-[1440px] mx-auto w-full px-4 min-[480px]:px-6 md:px-12">
-          <div className="animate-slide-in-left">
-            <HeroNav activeSection={activeSection} />
-          </div>
+          <HeroNav activeSection={activeSection} />
           
           <div className="text-right shrink-0 pl-2">
             <h2 className="font-body text-[10px] sm:text-xs md:text-sm tracking-[0.25em] sm:tracking-[0.3em] text-foreground/80 uppercase">
@@ -103,6 +92,16 @@ const Index = () => {
           </div>
         </div>
       </header>
+
+    <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden">
+      {/* Background Logo Overlay (Fixed) */}
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] z-0">
+        <img
+          src={mrsGrayScript}
+          alt=""
+          className="w-[120%] md:w-[80%] max-w-[1200px] select-none"
+        />
+      </div>
 
       {/* Hidden SEO Content - Harsh SEO for London Women's Football Agency */}
       <div className="sr-only" aria-hidden="true">
@@ -315,6 +314,7 @@ const Index = () => {
         </p>
       </footer>
     </div>
+    </>
   );
 };
 
