@@ -160,7 +160,7 @@ const Index = () => {
                 <img
                   src={mrsGrayScript}
                   alt="Mrs Gray"
-                  className="h-16 sm:h-20 md:h-28 lg:h-32 w-auto opacity-80 select-none pointer-events-none"
+                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl h-auto opacity-80 select-none pointer-events-none"
                 />
               </div>
 
