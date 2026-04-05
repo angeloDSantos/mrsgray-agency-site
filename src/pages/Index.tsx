@@ -239,15 +239,22 @@ const Index = () => {
 
           {/* Founder Section */}
           <div className="max-w-5xl mx-auto mt-12 sm:mt-16 md:mt-24 grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center px-2 min-[480px]:px-4 md:px-0">
-            <div className="aspect-[4/5] max-md:max-h-[min(85vh,520px)] md:max-h-none mx-auto w-full bg-muted relative overflow-hidden grayscale contrast-[1.02]">
-               <img 
-                 src="/michaela_enhanced.png" 
-                 alt="Michaela Gooden" 
-                 className="w-full h-full object-cover object-top md:object-center"
+            <div className="aspect-[4/5] max-md:max-h-[min(85vh,520px)] md:max-h-none mx-auto w-full bg-muted relative overflow-hidden contrast-[1.02] group cursor-default">
+               <img
+                 src="/michaela.jpg"
+                 alt="Michaela Gooden"
+                 className="w-full h-full object-cover object-top md:object-center transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-110"
                  loading="lazy"
                  decoding="async"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
+               {/* Hover overlay */}
+               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/40 to-transparent flex flex-col justify-end p-6 transition-opacity duration-500 pointer-events-none opacity-0 group-hover:opacity-100">
+                 <div className="space-y-1 transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                   <h3 className="font-display text-2xl italic text-primary">Michaela Gooden</h3>
+                   <p className="font-body text-xs tracking-[0.2em] uppercase text-foreground/60">Mrs Gray</p>
+                 </div>
+               </div>
             </div>
             <div className="space-y-6">
               <h3 className="font-display text-2xl md:text-3xl italic">Michaela Gooden</h3>
