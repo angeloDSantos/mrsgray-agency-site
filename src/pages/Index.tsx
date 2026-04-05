@@ -129,13 +129,14 @@ const Index = () => {
           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 min-h-0">
             {/* Left — headline top, empty bottom */}
             <div className="flex flex-col justify-between py-4 md:py-10 px-2 min-[480px]:px-4 md:px-8 animate-fade-in">
-              <h1 className="font-display text-[2.1rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-foreground/90 text-balance">
+              {/* Top — first line */}
+              <h1 className="font-display text-[2.1rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-foreground/90">
                 Elevating women's football,
-                <br />
-                <span className="text-primary/80">one player at a time</span>
               </h1>
-              {/* Bottom anchor — invisible, just holds the justify-between */}
-              <div />
+              {/* Bottom — second line, pushed down by justify-between */}
+              <p className="font-display text-[2.1rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-primary/80">
+                one player at a time
+              </p>
             </div>
 
             {/* Right — button top, subtext bottom */}
