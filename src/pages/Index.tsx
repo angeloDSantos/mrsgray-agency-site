@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import HeroNav from "@/components/HeroNav";
 import PlayerCard from "@/components/PlayerCard";
 import { Mail, Instagram, Linkedin, Twitter } from "lucide-react";
-import mrsGrayScript from "@/assets/mrs-gray-script.png";
+import mrsGrayScript from "@/assets/script-font-bg.png";
 
 const players = [
   {
@@ -96,7 +96,7 @@ const Index = () => {
         <img
           src={mrsGrayScript}
           alt=""
-          className="w-[110%] md:w-[70%] max-w-[1100px] select-none mix-blend-screen"
+          className="w-[110%] md:w-[70%] max-w-[1100px] select-none"
         />
       </div>
 
@@ -160,7 +160,7 @@ const Index = () => {
                 <img
                   src={mrsGrayScript}
                   alt="Mrs Gray"
-                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl h-auto opacity-80 select-none pointer-events-none mix-blend-screen"
+                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl h-auto opacity-80 select-none pointer-events-none"
                 />
               </div>
 
@@ -202,7 +202,7 @@ const Index = () => {
                 <img
                   src={mrsGrayScript}
                   alt="Mrs Gray"
-                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl max-h-[22vh] md:max-h-[28vh] object-contain opacity-80 select-none pointer-events-none mix-blend-screen"
+                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl max-h-[22vh] md:max-h-[28vh] object-contain opacity-80 select-none pointer-events-none"
                 />
               </div>
 
