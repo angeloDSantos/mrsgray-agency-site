@@ -38,12 +38,12 @@ const PlayerCard = ({ name, club, bio, image }: PlayerProps) => {
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
         loading="lazy"
         decoding="async"
-        className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105"
+        className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-110"
       />
 
       {/* Hover Overlay */}
       <div 
-        className={`absolute inset-0 bg-background/90 flex flex-col justify-end p-6 transition-opacity duration-500 pointer-events-none ${
+        className={`absolute inset-0 bg-gradient-to-t from-background/85 via-background/40 to-transparent flex flex-col justify-end p-6 transition-opacity duration-500 pointer-events-none ${
           showOverlay ? "opacity-100" : "opacity-0"
         }`}
       >
