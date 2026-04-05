@@ -96,7 +96,7 @@ const Index = () => {
         <img
           src={mrsGrayScript}
           alt=""
-          className="w-[110%] md:w-[70%] max-w-[1100px] select-none"
+          className="w-[110%] md:w-[70%] max-w-[1100px] select-none mt-[25vh]"
         />
       </div>
 
