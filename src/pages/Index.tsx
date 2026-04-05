@@ -91,7 +91,7 @@ const Index = () => {
 
     <div className="relative min-h-screen w-full bg-background text-foreground overflow-x-hidden">
       {/* Background Logo Overlay (Fixed) */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.07] z-0">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] z-0">
         <img
           src={mrsGrayScript}
           alt=""
@@ -121,41 +121,48 @@ const Index = () => {
       {/* Main Content */}
       <main className="relative z-10">
         {/* Hero Section - Restored to original layout */}
-        <section id="home" className="scroll-mt-20 md:scroll-mt-16 min-h-dvh flex flex-col p-4 min-[480px]:p-6 md:p-12">
+        <section id="home" className="scroll-mt-20 md:scroll-mt-16 min-h-dvh flex flex-col px-4 min-[480px]:px-6 md:px-12 pt-4 md:pt-6 pb-0">
           {/* Spacer for fixed header */}
-          <div className="h-16 sm:h-18 md:h-20" />
+          <div className="h-14 sm:h-16 md:h-16" />
+
+          {/* Mrs Gray script — top centre */}
+          <div className="flex justify-center py-4 md:py-6 animate-fade-in">
+            <img
+              src={mrsGrayScript}
+              alt="Mrs Gray"
+              className="h-14 sm:h-16 md:h-24 lg:h-28 w-auto opacity-80 select-none pointer-events-none"
+            />
+          </div>
 
           {/* Two-column hero — elements pushed to top and bottom of each column */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 min-h-0">
-            {/* Left — headline top, empty bottom */}
-            <div className="flex flex-col justify-between py-4 md:py-10 px-2 min-[480px]:px-4 md:px-8 animate-fade-in">
-              {/* Top — first line */}
-              <h1 className="font-display text-[2.1rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-foreground/90">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 min-h-0">
+            {/* Left — first line top, second line bottom */}
+            <div className="flex flex-col justify-between py-3 md:py-6 px-2 min-[480px]:px-4 md:px-8 animate-fade-in">
+              <h1 className="font-display text-[2rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-foreground/90">
                 Elevating women's football,
               </h1>
-              {/* Bottom — second line, pushed down by justify-between */}
-              <p className="font-display text-[2.1rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-primary/80">
+              <p className="font-display text-[2rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-primary/80">
                 one player at a time
               </p>
             </div>
 
             {/* Right — button top, subtext bottom */}
-            <div className="flex flex-col justify-between py-4 md:py-10 px-2 min-[480px]:px-4 md:px-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <div className="flex flex-col justify-between py-3 md:py-6 px-2 min-[480px]:px-4 md:px-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <a
                 href="#players"
-                className="inline-flex items-center justify-center gap-4 w-full min-h-[64px] md:min-h-[88px] px-10 py-5 md:py-7 bg-primary text-primary-foreground font-body text-base md:text-xl tracking-[0.25em] uppercase hover:bg-zinc-800 active:bg-zinc-800 transition-colors duration-300 group touch-manipulation"
+                className="inline-flex items-center justify-center gap-4 w-full min-h-[60px] md:min-h-[80px] px-10 py-4 md:py-6 bg-primary text-primary-foreground font-body text-base md:text-xl tracking-[0.25em] uppercase hover:bg-zinc-800 active:bg-zinc-800 transition-colors duration-300 group touch-manipulation"
               >
                 <span className="text-xl group-hover:rotate-90 transition-transform duration-300">✦</span>
                 Our Players
               </a>
-              <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed text-pretty mt-8 md:mt-0">
+              <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed text-pretty mt-6 md:mt-0">
                 Representing the next generation of women's football talent with intention, trust, and tailored support.
               </p>
             </div>
           </div>
 
           {/* Bottom bar — social links + scroll indicator */}
-          <div className="flex items-end justify-between px-2 min-[480px]:px-4 md:px-8 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] sm:pb-6 md:pb-6 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+          <div className="flex items-end justify-between px-2 min-[480px]:px-4 md:px-8 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] sm:pb-6 md:pb-6 animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <div className="flex items-center gap-6 sm:gap-8">
               {[
                 { label: "Instagram", href: "https://www.instagram.com/mrsgrayagency/" },
