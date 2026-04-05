@@ -96,7 +96,7 @@ const Index = () => {
         <img
           src={mrsGrayScript}
           alt=""
-          className="w-[110%] md:w-[70%] max-w-[1100px] select-none"
+          className="w-[110%] md:w-[70%] max-w-[1100px] select-none mix-blend-screen"
         />
       </div>
 
@@ -160,7 +160,7 @@ const Index = () => {
                 <img
                   src={mrsGrayScript}
                   alt="Mrs Gray"
-                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl h-auto opacity-80 select-none pointer-events-none"
+                  className="w-full max-w-3xl md:max-w-5xl lg:max-w-6xl h-auto opacity-80 select-none pointer-events-none mix-blend-screen"
                 />
               </div>
 
@@ -281,7 +281,7 @@ const Index = () => {
         </section>
 
         {/* Players Section */}
-        <section id="players" className="scroll-mt-28 md:scroll-mt-36 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24 bg-secondary/30 relative">
+        <section id="players" className="scroll-mt-16 md:scroll-mt-20 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24 bg-secondary/30 relative">
           <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
             <div className="space-y-4 px-4 md:px-0">
               <h2 className="font-display text-3xl md:text-4xl italic text-primary">Our Players</h2>
@@ -306,7 +306,7 @@ const Index = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="scroll-mt-28 md:scroll-mt-36 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24">
+        <section id="about" className="scroll-mt-16 md:scroll-mt-20 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div className="space-y-8 px-4 md:px-0">
               <div className="space-y-4">
@@ -381,7 +381,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="scroll-mt-28 md:scroll-mt-36 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24 bg-card">
+        <section id="contact" className="scroll-mt-16 md:scroll-mt-20 py-12 sm:py-16 md:py-24 px-4 min-[480px]:px-6 md:px-24 bg-card">
           <div className="max-w-5xl mx-auto text-center space-y-8 sm:space-y-12 px-2 min-[480px]:px-4 md:px-0">
             <div className="space-y-4">
               <h2 className="font-display text-3xl md:text-4xl italic text-primary">Inquire</h2>

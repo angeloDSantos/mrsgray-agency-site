@@ -84,14 +84,14 @@
 @layer base {
   html {
     /* Fixed header + notch; pairs with scroll-mt on sections */
-    scroll-padding-top: max(7rem, calc(env(safe-area-inset-top, 0px) + 5.5rem));
+    scroll-padding-top: max(4rem, calc(env(safe-area-inset-top, 0px) + 3rem));
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
 
   @media (min-width: 768px) {
     html {
-      scroll-padding-top: max(9rem, calc(env(safe-area-inset-top, 0px) + 7rem));
+      scroll-padding-top: max(5rem, calc(env(safe-area-inset-top, 0px) + 4rem));
     }
   }
 
