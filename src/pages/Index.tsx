@@ -142,7 +142,7 @@ const Index = () => {
             </div>
           </div>
 
-          <footer className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 sm:gap-8 px-2 min-[480px]:px-4 md:px-12 pb-[max(3rem,env(safe-area-inset-bottom,0px))] sm:pb-12 md:pb-4">
+          <footer className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 sm:gap-8 px-2 min-[480px]:px-4 md:px-12 pt-10 sm:pt-14 md:pt-0 pb-[max(3rem,env(safe-area-inset-bottom,0px))] sm:pb-12 md:pb-4">
             <div className="animate-fade-in w-full sm:w-auto flex justify-center sm:justify-start" style={{ animationDelay: "0.6s" }}>
               <a 
                 href="#players"
@@ -307,7 +307,7 @@ const Index = () => {
                   className="flex flex-col items-center gap-2 group min-w-[4.5rem] min-h-[48px] justify-center touch-manipulation"
                 >
                   <social.icon className="w-5 h-5 md:w-5 md:h-5 group-hover:text-primary transition-colors" />
-                  <span className="text-[9px] md:text-[10px] tracking-[0.18em] md:tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground">{social.label}</span>
+                  <span className="text-[10px] md:text-[11px] tracking-[0.18em] md:tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground">{social.label}</span>
                 </a>
               ))}
             </div>
@@ -316,7 +316,7 @@ const Index = () => {
       </main>
 
       <footer className="py-8 md:py-12 px-4 md:px-6 pb-[max(2rem,env(safe-area-inset-bottom,0px))] border-t border-border/50 text-center">
-        <p className="font-body text-[8px] md:text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+        <p className="font-body text-[10px] md:text-xs tracking-[0.2em] text-muted-foreground uppercase">
           © 2026 Mrs Gray Agency. All rights reserved.
         </p>
       </footer>
