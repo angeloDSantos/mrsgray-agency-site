@@ -145,7 +145,7 @@ const Index = () => {
                 <p className="font-display text-[2rem] min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl italic leading-[1.12] text-primary/80">
                   one player at a time
                 </p>
-                <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed text-pretty">
+                <p className="font-display text-xl sm:text-2xl md:text-2xl lg:text-3xl italic leading-snug text-primary/80 text-pretty">
                   Representing the next generation of women's football talent with intention, trust, and tailored support.
                 </p>
               </div>
