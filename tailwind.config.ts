@@ -88,6 +88,14 @@ export default {
           from: { opacity: "0", transform: "translateX(-30px)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
+        "write-reveal": {
+          from: { clipPath: "inset(0 100% 0 0)" },
+          to: { clipPath: "inset(0 0% 0 0)" },
+        },
+        "fade-out": {
+          from: { opacity: "1" },
+          to: { opacity: "0", pointerEvents: "none" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +103,8 @@ export default {
         "fade-in": "fade-in 0.8s ease-out forwards",
         "fade-in-slow": "fade-in-slow 1.2s ease-out forwards",
         "slide-in-left": "slide-in-left 0.6s ease-out forwards",
+        "write-reveal": "write-reveal 2s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "fade-out": "fade-out 0.7s ease-out forwards",
       },
     },
   },
