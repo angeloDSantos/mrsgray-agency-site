@@ -276,15 +276,6 @@ const Index = () => {
                 ))}
               </div>
 
-              {/* Scroll indicator */}
-              <a href="#players" className="flex flex-col items-center gap-1.5 group touch-manipulation" aria-label="Scroll to players">
-                <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground/60 group-hover:text-muted-foreground transition-colors">Scroll</span>
-                <div className="animate-bounce text-muted-foreground/50 group-hover:text-primary transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-                    <path d="M8 3v10M3.5 8.5l4.5 4.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </a>
             </div>
           </div>
         </section>
